@@ -33,7 +33,7 @@ def runTest():
         accesskey = os.environ.get("LT_ACCESS_KEY")
 
     # grid url
-    gridUrl = "stage-mobile-hub.lambdatestinternal.com/wd/hub"
+    gridUrl = "mobile-hub-internal.lambdatest.com/wd/hub"
 
     # capabilities
     desired_cap = getCaps()
