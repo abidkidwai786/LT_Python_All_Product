@@ -75,11 +75,6 @@ set LT_ACCESS_KEY=YOUR_LAMBDATEST_ACCESS_KEY
 curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "appFile=@"/Users/macuser/Downloads/apple-tv-sample-app.ipa""
 ```
 
-**Using App URL:**
-
-```bash
-curl -u "YOUR_LAMBDATEST_USERNAME:YOUR_LAMBDATEST_ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "https://prod-mobile-artefacts.lambdatest.com/assets/docs/apple-tv-sample-app.ipa" -F "name=apple-tv-sample-app"
-```
 **Tip:**
 
 - If you do not have any **.apk** file, you can run your sample tests on LambdaTest by using our sample :link: [appletv app](https://prod-mobile-artefacts.lambdatest.com/assets/docs/apple-tv-sample-app.ipa).
