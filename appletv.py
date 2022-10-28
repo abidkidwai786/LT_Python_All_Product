@@ -8,14 +8,14 @@ def getCaps():
         "deviceName" : "Apple TV",
         "platformVersion" :  "15",
         "platform" : "tvos",
-        'isRealMobile':True,
+        "isRealMobile":True,
         "build": "Apple TV Testing",
         "video": True,
         "app":"APP_URL",     #Enter app url here
         "network": True,
         "geoLocation": "FR",
         "devicelog": True,
-        "visual" : True,
+        "visual" : True
     }
 
     return desired_caps
