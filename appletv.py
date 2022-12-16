@@ -12,7 +12,7 @@ def getCaps():
         "build": "Apple TV Testing",
         "video": True,
         "app":"APP_URL",     #Enter app url here
-        "network": True,
+        "network": False,
         "geoLocation": "FR",
         "devicelog": True,
         "visual" : True
