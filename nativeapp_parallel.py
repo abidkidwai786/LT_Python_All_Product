@@ -1,40 +1,69 @@
-from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from appium import webdriver
+from appium.webdriver.common.mobileby import MobileBy
 import time
 import os
+from threading import Thread
 
-desired_caps = {
+
+
+caps =[
+    {
     "deviceName": "Galaxy S20",
     "platformName": "Android",
     "platformVersion": "10",
     "app": "lt://APP1016043281710632734768779",  # Enter app_url here
     "isRealMobile": True,
-    "build": "Native App Automation Android",
-    "name": "Sample Test - Python",
-    "appProfiling": True,
-    "network": True,
+    "build": "Parallel Native App automation",
+    "name": "Samsung S20 Test",
+    "network": False,
     "visual": True,
     "video": True
-}
+    },
+    {
+    "deviceName": "OnePlus 8",
+    "platformName": "Android",
+    "platformVersion": "11",
+    "app": "lt://APP1016043281710632734768779",  # Enter app_url here
+    "isRealMobile": True,
+    "build": "Parallel Native App automation",
+    "name": "OnePlus 8 Test",
+    "network": False,
+    "visual": True,
+    "video": True
+    },
+    {
+    "deviceName": "Pixel 6 Pro",
+    "platformName": "Android",
+    "platformVersion": "12",
+    "app": "lt://APP1016043281710632734768779",  # Enter app_url here
+    "isRealMobile": True,
+    "build": "Parallel Native App automation",
+    "name": "Pixel 6 Pro Test",
+    "network": False,
+    "visual": True,
+    "video": True
+    }
+]
 
 
-def startingTest():
+def run_session(desired_caps):
     if os.environ.get("LT_USERNAME") is None:
         # Enter LT username here if environment variables have not been added
-        username = "username"
+        username = ""
     else:
         username = os.environ.get("LT_USERNAME")
     if os.environ.get("LT_ACCESS_KEY") is None:
         # Enter LT accesskey here if environment variables have not been added
-        accesskey = "accesskey"
+        accesskey = ""
     else:
         accesskey = os.environ.get("LT_ACCESS_KEY")
 
     try:
         driver = webdriver.Remote(desired_capabilities=desired_caps, command_executor="https://" +
                                   username+":"+accesskey+"@mobile-hub.lambdatest.com/wd/hub")
+        
         colorElement = WebDriverWait(driver, 20).until(EC.element_to_be_clickable(
             (MobileBy.ID, "com.lambdatest.proverbial:id/color")))
         colorElement.click()
@@ -86,5 +115,5 @@ def startingTest():
         driver.execute_script("lambda-status=failed")
         driver.quit()
 
-
-startingTest()
+for cap in caps:
+  Thread(target=run_session, args=(cap,)).start()

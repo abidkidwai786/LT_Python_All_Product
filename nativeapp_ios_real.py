@@ -11,7 +11,7 @@ desired_caps = {
     "platformVersion": "14",
     "isRealMobile": True,
     "app": "lt://proverbial-ios",  # Enter app_url here
-    "build": "Native App Automation Android",
+    "build": "Native App Automation IOS",
     "name": "Sample Test - Python",
     "network": False,
     "visual": True,
